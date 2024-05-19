@@ -2,7 +2,7 @@ import random
 from .modpow import modpow
 
 
-def _find_k_m(number: int) -> tuple[int, int]:
+def find_k_m(number: int) -> tuple[int, int]:
     k: int = 0
     power: int = 1
     m: int = number
@@ -31,7 +31,7 @@ def miller_rabin_test(number: int, tests: int = 5) -> bool:
     if not number & 1:
         return False
     temp: int = number - 1
-    k, q = _find_k_m(number=temp)
+    k, q = find_k_m(number=temp)
     for _ in range(tests):
         a = random.randint(2, number-1)
         result = _miller_rabin_single_step(number=number, q=q, k=k, a=a)
