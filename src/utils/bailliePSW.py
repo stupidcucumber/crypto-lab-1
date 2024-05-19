@@ -62,6 +62,8 @@ def _strong_lukas_test(number: int, D: int) -> bool:
 
 
 def baillie_psw_test(number: int) -> bool:
+    if number == 1:
+        return False
     if number in [2, 3, 5]:
         return True
     if not number & 1:
@@ -71,7 +73,6 @@ def baillie_psw_test(number: int) -> bool:
 
     for element in _sequence():
         jacobi_symbol = _jacobi(element, number)
-        print('Jacobi Symbol: ', jacobi_symbol)
         if jacobi_symbol == -1:
             D = element
             break
